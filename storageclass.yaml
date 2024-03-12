@@ -1,0 +1,19 @@
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: standard
+provisioner: docker.io/hostpath
+allowVolumeExpansion: true
+reclaimPolicy: Delete
+volumeBindingMode: WaitForFirstConsumer
+
+# provisioner: kubernetes.io/no-provisioner
+# reclaimPolicy: Delete
+# parameters:
+#   type: pd-standard
+# allowedTopologies:
+# - matchLabelExpressions:
+#   - key: topology.kubernetes.io/zone
+#     values:
+#     - us-central-1a
+#     - us-central-1b
